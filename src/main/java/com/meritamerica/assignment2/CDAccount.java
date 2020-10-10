@@ -4,31 +4,35 @@ import java.util.Date;
 
 public class CDAccount {
 
-  CDAccount(CDOffering offering, double balance) {
+  private CDOffering offering = null;
+  private double balance;
 
+  CDAccount(CDOffering offering, double balance) {
+    this.offering = offering;
+    this.balance = balance;
   }
 
   double getBalance() {
-
+    return balance;
   }
 
   double getInterestRate() {
-
+    return offering.getInterestRate();
   }
 
   int getTerm() {
-
+    return offering.getTerm();
   }
 
   java.util.Date getStartDate() {
-
+    getDate();  // TODO
   }
 
   long getAccountNumber() {
-
+    return accountNumber; // TODO
   }
 
   double futureValue() {
-
+    return balance * Math.pow(1 + offering.getInterestRate, offering.getTerm());
   }
 }

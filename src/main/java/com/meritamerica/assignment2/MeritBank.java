@@ -33,7 +33,7 @@ public class MeritBank {
   }
 
   static long getNextAccountNumber() {
-
+  
   }
 
   static double totalBalances() {
