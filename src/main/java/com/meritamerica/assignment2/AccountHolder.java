@@ -1,6 +1,5 @@
 package com.meritamerica.assignment2;
 
-import java.util.Arrays;
 
 public class AccountHolder {
   // Declares variables for accountHolder constructor
@@ -9,11 +8,11 @@ public class AccountHolder {
   private String lastName;
   private String ssn;
   private CheckingAccount[] checkingAccount = new CheckingAccount[10];
-  private int checkingIndex;
+  private int checkingIndex = -1;
   private SavingsAccount[] savingsAccount = new SavingsAccount[10];
-  private int savingsIndex;
+  private int savingsIndex = -1;
   private CDAccount[] cdAccount = new CDAccount[10];
-  private int cdIndex;
+  private int cdIndex = -1;
 
   // Declares accountHolder constructor while passing variables
 
@@ -60,13 +59,16 @@ public class AccountHolder {
   }
 
   CheckingAccount addCheckingAccount(double openingBalance) {
-	  CheckingAccount newAccount = new CheckingAccount(openingBalance);
-	  return addCheckingAccount(newAccount);
-    
+		  CheckingAccount newAccount = new CheckingAccount(openingBalance);
+		  return addCheckingAccount(newAccount);
   }
 
   CheckingAccount addCheckingAccount(CheckingAccount checkingAccount) {
-	return checkingAccount;
+	  if(getCombinedBalance() < 245000) {
+		  checkingIndex++;
+		  return this.checkingAccount[checkingIndex] = checkingAccount;
+	  }	else
+	  return null;
   }
 
   CheckingAccount[] getCheckingAccounts() {
@@ -78,20 +80,26 @@ public class AccountHolder {
   }
 
   double getCheckingBalance() {
-    double total = 0;
-    for(int i = 0; i < cdAccount.length; i++) {
-      total += checkingAccount[i].getBalance();
-    }
-    return total;
+	  int count = 0;
+	    int total = 0;
+	    while(checkingAccount[count] != null) {
+	    	total += checkingAccount[count].getBalance();
+	    	count++;
+	    }
+	    return total;
   }
 
   SavingsAccount addSavingsAccount(double openingBalance) {
-	  SavingsAccount newAccount = new SavingsAccount(openingBalance);
-	  return addSavingsAccount(newAccount);
+		  SavingsAccount newAccount = new SavingsAccount(openingBalance);
+		  return addSavingsAccount(newAccount);
   }
 
   SavingsAccount addSavingsAccount(SavingsAccount savingsAccount) {
-	  return savingsAccount;
+	  if(this.getCombinedBalance() < 245000) {
+		  savingsIndex++;
+		  return this.savingsAccount[savingsIndex] = savingsAccount;
+	  }	else
+	  return null;
   }
 
   SavingsAccount[] getSavingsAccounts() {
@@ -103,9 +111,11 @@ public class AccountHolder {
   }
 
   double getSavingsBalance() {
-    double total = 0;
-    for(int i = 0; i < cdAccount.length; i++) {
-      total += savingsAccount[i].getBalance();
+    int count = 0;
+    int total = 0;
+    while(savingsAccount[count] != null) {
+    	total += savingsAccount[count].getBalance();
+    	count++;
     }
     return total;
   }
@@ -116,7 +126,8 @@ public class AccountHolder {
   }
 
   CDAccount addCDAccount(CDAccount cdAccount) {
-	  return cdAccount;
+	  cdIndex++;
+		return this.cdAccount[cdIndex] = cdAccount;
   }
 
   CDAccount[] getCDAccounts() {
@@ -128,14 +139,17 @@ public class AccountHolder {
   }
 
   double getCDBalance() {
-	double total = 0;
-    for(int i = 0; i < cdAccount.length; i++) {
-      total += cdAccount[i].getBalance();
-    }
-    return total;
+	  int count = 0;
+	    int total = 0;
+	    while(cdAccount[count] != null) {
+	    	total += cdAccount[count].getBalance();
+	    	count++;
+	    }
+	    return total;
   }
 
   double getCombinedBalance() {
-    return getSavingsBalance() + getCheckingBalance();
+	  double total = this.getSavingsBalance() + this.getCheckingBalance() + getCDBalance();
+    return total;
   }
 }
