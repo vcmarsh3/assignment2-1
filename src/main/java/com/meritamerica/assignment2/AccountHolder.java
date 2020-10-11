@@ -30,7 +30,7 @@ public class AccountHolder {
     return firstName;
   }
 
-  // Delares set method for firstName
+  // Declares set method for firstName
   void setFirstName(String firstName) {
     this.firstName = firstName;
   }
@@ -60,11 +60,14 @@ public class AccountHolder {
   }
 
   CheckingAccount addCheckingAccount(double openingBalance) {
-    return checkingAccount[checkingIndex];
+    return checkingAccount[checkingIndex] = new CheckingAccount(openingBalance);
+    
+    
   }
 
   CheckingAccount addCheckingAccount(CheckingAccount checkingAccount) {
-
+	  checkingIndex++;
+	return checkingAccount;
   }
 
   CheckingAccount[] getCheckingAccounts() {
@@ -84,7 +87,7 @@ public class AccountHolder {
   }
 
   SavingsAccount addSavingsAccount(double openingBalance) {
-
+	  return savingsAccount[checkingIndex] = new savingsAccount(openingBalance);
   }
 
   SavingsAccount addSavingsAccount(SavingsAccount savingsAccount) {

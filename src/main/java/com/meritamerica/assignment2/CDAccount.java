@@ -6,7 +6,7 @@ public class CDAccount {
 
   private CDOffering offering = null;
   private double balance;
-  private int date = getDate();
+  private Date date = new Date();
 
   CDAccount(CDOffering offering, double balance) {
     this.offering = offering;
@@ -26,7 +26,7 @@ public class CDAccount {
   }
 
   java.util.Date getStartDate() {
-    return date;
+	  return date;
   }
 
   long getAccountNumber() {
@@ -34,6 +34,6 @@ public class CDAccount {
   }
 
   double futureValue() {
-    return balance * Math.pow(1 + offering.getInterestRate, offering.getTerm());
+    return balance * Math.pow(1 + offering.getInterestRate(), offering.getTerm());
   }
 }
