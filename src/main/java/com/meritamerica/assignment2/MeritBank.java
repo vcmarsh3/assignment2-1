@@ -58,7 +58,7 @@ public class MeritBank {
   }
 
   static long getNextAccountNumber() {
-	  return (long)((Math.random() * 10) + 1);	// TODO
+	  return (long)((Math.random() * 15) + 5);	// TODO
   }
 
   static double totalBalances() {

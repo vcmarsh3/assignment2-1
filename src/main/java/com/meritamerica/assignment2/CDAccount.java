@@ -14,7 +14,10 @@ public class CDAccount {
   }
 
   double getBalance() {
-    return balance;
+	if(balance > 0) {
+	    return balance;		
+	} else
+	return 0;
   }
 
   double getInterestRate() {
@@ -30,7 +33,7 @@ public class CDAccount {
   }
 
   long getAccountNumber() {
-    return accountNumber; // TODO
+	  return (long)((Math.random() * 15) + 5);	// TODO
   }
 
   double futureValue() {
