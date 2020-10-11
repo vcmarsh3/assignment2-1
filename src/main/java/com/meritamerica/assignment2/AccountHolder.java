@@ -23,13 +23,13 @@ public class AccountHolder {
     this.ssn = ssn;
   }
 
-  // Declares getter method for firstName
+  // Get method for firstName
 
   String getFirstName() {
     return firstName;
   }
 
-  // Declares set method for firstName
+  // Set method for firstName
   void setFirstName(String firstName) {
     this.firstName = firstName;
   }
@@ -58,12 +58,12 @@ public class AccountHolder {
     this.ssn = ssn;
   }
 
-  CheckingAccount addCheckingAccount(double openingBalance) {
+  CheckingAccount addCheckingAccount(double openingBalance) {	// Create new checking account
 		  CheckingAccount newAccount = new CheckingAccount(openingBalance);
 		  return addCheckingAccount(newAccount);
   }
 
-  CheckingAccount addCheckingAccount(CheckingAccount checkingAccount) {
+  CheckingAccount addCheckingAccount(CheckingAccount checkingAccount) {	// If balance is < a number, increase the checking index and create the account
 	  if(getCombinedBalance() < 245000) {
 		  checkingIndex++;
 		  return this.checkingAccount[checkingIndex] = checkingAccount;
@@ -79,7 +79,7 @@ public class AccountHolder {
     return checkingAccount.length;
   }
 
-  double getCheckingBalance() {
+  double getCheckingBalance() {	// return the balance of all checking accounts
 	  int count = 0;
 	    int total = 0;
 	    while(checkingAccount[count] != null) {
@@ -89,12 +89,12 @@ public class AccountHolder {
 	    return total;
   }
 
-  SavingsAccount addSavingsAccount(double openingBalance) {
+  SavingsAccount addSavingsAccount(double openingBalance) {	// new savings account
 		  SavingsAccount newAccount = new SavingsAccount(openingBalance);
 		  return addSavingsAccount(newAccount);
   }
 
-  SavingsAccount addSavingsAccount(SavingsAccount savingsAccount) {
+  SavingsAccount addSavingsAccount(SavingsAccount savingsAccount) {	// If balance is < a number, increase the checking index and create the account
 	  if(this.getCombinedBalance() < 245000) {
 		  savingsIndex++;
 		  return this.savingsAccount[savingsIndex] = savingsAccount;
@@ -110,7 +110,7 @@ public class AccountHolder {
     return savingsAccount.length;
   }
 
-  double getSavingsBalance() {
+  double getSavingsBalance() {	// get savings balance
     int count = 0;
     int total = 0;
     while(savingsAccount[count] != null) {
@@ -120,12 +120,12 @@ public class AccountHolder {
     return total;
   }
 
-  CDAccount addCDAccount(CDOffering offering, double openingBalance) {
+  CDAccount addCDAccount(CDOffering offering, double openingBalance) {	// create CD Account
 	  CDAccount newAccount = new CDAccount(offering, openingBalance);
 	  return addCDAccount(newAccount);
   }
 
-  CDAccount addCDAccount(CDAccount cdAccount) {
+  CDAccount addCDAccount(CDAccount cdAccount) {	// Create CD account and increase index by 1
 	  cdIndex++;
 		return this.cdAccount[cdIndex] = cdAccount;
   }
@@ -138,7 +138,7 @@ public class AccountHolder {
     return cdAccount.length;
   }
 
-  double getCDBalance() {
+  double getCDBalance() {	// get cd balance of all cd accounts
 	  int count = 0;
 	    int total = 0;
 	    while(cdAccount[count] != null) {
@@ -148,7 +148,7 @@ public class AccountHolder {
 	    return total;
   }
 
-  double getCombinedBalance() {
+  double getCombinedBalance() {	// return the balance of every account of the account holder
 	  double total = this.getSavingsBalance() + this.getCheckingBalance() + getCDBalance();
     return total;
   }

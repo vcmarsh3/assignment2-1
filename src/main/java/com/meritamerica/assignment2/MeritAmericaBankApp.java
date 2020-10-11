@@ -1,3 +1,11 @@
+/*
+ * MeritAmericaBankApp.java
+ * By: Jameson Squyres and Vanessa Marsh
+ * This Program will allow a bank to create account holders with multiple checking, savings, and cd accounts
+ * While also allowing account holders to deposit, withdraw, open new accounts, find the best cd offerings
+ * and get a cd offering. MeritBank will be able to add account holders, offerings, clear offerings
+ * and find the best offering for an account by using the balance on the account.
+ */
 package com.meritamerica.assignment2;
 
 public class MeritAmericaBankApp {

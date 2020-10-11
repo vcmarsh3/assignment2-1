@@ -8,12 +8,12 @@ public class CDAccount {
   private double balance;
   private Date date = new Date();
 
-  CDAccount(CDOffering offering, double balance) {
+  CDAccount(CDOffering offering, double balance) {	// cd account constructor
     this.offering = offering;
     this.balance = balance;
   }
 
-  double getBalance() {
+  double getBalance() {	// return the balance
 	if(balance > 0) {
 	    return balance;		
 	} else
@@ -28,15 +28,15 @@ public class CDAccount {
     return offering.getTerm();
   }
 
-  java.util.Date getStartDate() {
+  java.util.Date getStartDate() {	// return the date of the offering
 	  return date;
   }
 
   long getAccountNumber() {
-	  return (long)((Math.random() * 15) + 5);	// TODO
+	  return (long)((Math.random() * 15) + 5);
   }
 
-  double futureValue() {
+  double futureValue() {	// return the future value of the account in terms
     return balance * Math.pow(1 + offering.getInterestRate(), offering.getTerm());
   }
 }
