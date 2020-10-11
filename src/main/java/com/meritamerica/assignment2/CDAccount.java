@@ -6,6 +6,7 @@ public class CDAccount {
 
   private CDOffering offering = null;
   private double balance;
+  private int date = getDate();
 
   CDAccount(CDOffering offering, double balance) {
     this.offering = offering;
@@ -25,7 +26,7 @@ public class CDAccount {
   }
 
   java.util.Date getStartDate() {
-    getDate();  // TODO
+    return date;
   }
 
   long getAccountNumber() {

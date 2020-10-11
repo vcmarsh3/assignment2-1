@@ -17,5 +17,4 @@ public class CDOffering {
   double getInterestRate() {
     return interestRate;
   }
-
 }

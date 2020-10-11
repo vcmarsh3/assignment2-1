@@ -4,8 +4,11 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class MeritBank {
-  static void addAccountHolder(AccountHolder accountHolder) {
 
+  private AccountHolder[] accountHolder = null;
+
+  static void addAccountHolder(AccountHolder accountHolder) {
+    this.accountHolder[] = accountHolder;
   }
 
   static AccountHolder[] getAccountHolders() {
